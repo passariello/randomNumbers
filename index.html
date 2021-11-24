@@ -1,57 +1,57 @@
-  <center>
+  <div style="text-align:center">
     <br/>
-    <br/> 
+    <br/>
     Please, press F12 to show the result...
     <br/>
-    <br/>  
+    <br/>
     Default test is with 500,000 random numbers
     <br/>
-    <br/>  
+    <br/>
     &copy; Dario Passariello 2021
-  </center>
-  
-  <script>    
-  
+  </div>
+
+  <script>
+
     // INFORMATION
     console.group( '%cGeneral:%c',"color:orange","" );
       console.debug( "%cCreated by:%c Dario Passariello", "color:gray", "" );
       console.debug( "%cYou can use generate( 10000 ) here in the console to generate your random array. Also the result is cached into local storage to avoid repeating effort from client computer.", "color:gray", "" );
       console.debug( "%c-------------------------------%c", "color:gray", "" );
-    console.groupEnd();  
+    console.groupEnd();
 
     // CREATE AS GLOBAL FUNCTION
     // if you use js, react or similar you not need redux
-    
+
     let generate = window.generate = {};
     let shuffle = window.shuffle = {};
-      
+
     // ES6 / ECMAScript 2015
     // Idea from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-    
-    shuffleArray = (array) => {
+
+    shuffle = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         };
         return array;
-    };    
-    
+    };
+
     // MY FUNCTION
-    
-    generate = ( total ) => {        
-    var startTime = performance.now(); // start performance measurement
-      
+
+    generate = ( total ) => {
+      let startTime = performance.now(); // start performance measurement
+
       // CACHE FLAT RESULT IN LOCAL STORAGE      
       if( !localStorage.getItem( '_' + total ) ){
         const array = Array.from( Array( total ).keys() )
-        localStorage.setItem( '_' + total , JSON.stringify(array) )
-      };   
+        localStorage.setItem( '_' + total , JSON.stringify( array ) )
+      };
 
       // HANDLE THE SHUFFLE
-      var final = shuffleArray( JSON.parse(localStorage.getItem( '_' + total ) ) );
-      
-      var endTime = performance.now() // stop performance measurement
-      
+      let final = shuffle( JSON.parse(localStorage.getItem( '_' + total ) ) );
+
+      let endTime = performance.now() // stop performance measurement
+
       // CONSOLE THE RESULT
       console.group( '%cResult:%c',"color:orange","" );
         console.log( final );
