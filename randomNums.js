@@ -1,17 +1,3 @@
-  <div style="text-align:center">
-    <br/>
-    <br/>
-    Please, press F12 to show the result...
-    <br/>
-    <br/>
-    Default test is with 500,000 random numbers
-    <br/>
-    <br/>
-    &copy; Dario Passariello 2021
-  </div>
-
-  <script>
-
     // CREATE AS GLOBAL FUNCTION
     // if you use js, react or similar you not need redux
 
@@ -65,11 +51,9 @@
       console.group( '%cResult:%c',"color:orange","" );
         console.log( final );
         console.debug( "%c-------------------------------%c", "color:gray", "" );
-        console.debug( total + `%c in ${(startTime-endTime).toFixed(0)} ms... it's ok for you?`, "color:gray", "");
+        console.debug( total + `%c in ${(endTime-startTime).toFixed(0)} ms... it's ok for you?`, "color:gray", "");
       console.groupEnd();
     };
 
     // GENERATE 500,000
     generate( 500000 );
-
-  </script>
