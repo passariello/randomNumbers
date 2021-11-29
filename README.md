@@ -1,10 +1,11 @@
 # randomNumbers
 
-random number generator as array with cache in local storage.
+random random numbers generator as array.
 
-You can use generate( 10000 ) here in the console to generate your random array.
-Also the result is cached into local storage to avoid repeating effort from client computer.
+example:
 
-you can test on <https://dario.passariello.ca/rNum/>
+```js
+console.log( generate( 500000 ) );
+```
 
-by Dario Passariello
+by Dario Passariello - copyright 2021

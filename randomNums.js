@@ -12,7 +12,7 @@
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
-      };
+      }
       return array;
     };
 
@@ -37,15 +37,15 @@
 
       // CACHE FLAT RESULT IN LOCAL STORAGE      
       if( !localStorage.getItem( '_' + total ) ){
-        const array = Array.from( Array( total ).keys() );
+        let array = Array.from( Array( total ).keys() );
         localStorage.setItem( '_' + total , JSON.stringify( array ) );
-        delete array;
-      };
+        array = undefined;
+      }
 
       // HANDLE THE SHUFFLE
       let final = shuffle( JSON.parse(localStorage.getItem( '_' + total ) ) );
 
-      let endTime = performance.now() // stop performance measurement
+      let endTime = performance.now(); // stop performance measurement
 
       // CONSOLE THE RESULT
       console.group( '%cResult:%c',"color:orange","" );
