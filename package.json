@@ -1,5 +1,5 @@
 {
-  "name": "dpRandomNums",
+  "name": "dprandnums",
   "version": "0.0.1",
   "description": "Random number generator",
   "main": "randNums.js",
