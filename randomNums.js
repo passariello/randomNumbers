@@ -10,8 +10,9 @@
 // CREATE AS GLOBAL FUNCTION
   // if you use js, react or similar you not need redux
 
-  let generate = window.generate = {};
-  let shuffle = window.shuffle = {};
+  const
+    generate = window.generate = {},
+    shuffle = window.shuffle = {};
 
   // ES6 / ECMAScript 2015
   // Idea from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -27,14 +28,14 @@
 
   // MY FUNCTION
 
-  generate = ( total ) => { 
+  generate = ( total ) => {
 
     // CHECK
     if( isNaN( total ) ) return null;
     if( total < 0 ) total = 0;
     if( total > 500000 ) total = 500000;
 
-    // INFORMATION 
+    // INFORMATION
     console.clear();
     console.group( `%c dprandnums :%c',"color:orange`,"" );
       console.debug( "%cCreated by:%c Dario Passariello", "color:gray", "" );
@@ -44,7 +45,7 @@
 
     let startTime = performance.now(); // start performance measurement
 
-    // CACHE FLAT RESULT IN LOCAL STORAGE      
+    // CACHE FLAT RESULT IN LOCAL STORAGE
     if( !localStorage.getItem( '_' + total ) ){
       let array = Array.from( Array( total ).keys() );
       localStorage.setItem( '_' + total , JSON.stringify( array ) );
